@@ -2,19 +2,11 @@
 
 require('config.php');
 require('classes/Bootstrap.php');
+require('classes/Controller.php');
 
-
-class Controller
-{
-
-}
-class TestController extends Controller
-{
-	function testAction()
-	{
-
-	}
-}
+require('controllers/Home.php');
+require('controllers/Shares.php');
+require('controllers/Users.php');
 
 $bootstrap = new Bootstrap($_GET);
 
