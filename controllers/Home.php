@@ -1,8 +1,9 @@
 <?php
 class Home extends Controller
 {
-	public function index()
+	protected function index()
 	{
-		return 'home/index';
+		$viewmodel = new HomeModel();
+		$this->returnView($viewmodel->index(), true);
 	}
 }

@@ -13,8 +13,6 @@ class Bootstrap
 			$this->controller = $this->request['controller'];
 		if($this->request['action'] != '')
 			$this->action = $this->request['action'];
-
-		echo $this->controller .'/'. $this->action;
 	}
 
 	public function createController()
