@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>Shareboard</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?= ROOT_URL ?>assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?= ROOT_URL ?>assets/css/style.css">
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -34,7 +34,7 @@
     <div class="container">
 
       <div class="row">
-		<?php require($view); ?>
+		        <?php require($view); ?>
       </div>
 
     </div>
