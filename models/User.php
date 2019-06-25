@@ -5,6 +5,11 @@ class UserModel extends Model
 	{
 		if($post['submit'])
 		{
+			if($post['name'] == '' || $post['email'] == '' || $post['password'] == '')
+			{
+				Messages::setMsg('Please Fill all fields','error');
+				return;		
+			}
 			// Insert To MySQL
 			$this->query('INSERT INTO users (name, email, password) VALUES(:name, :email, :password)');
 			$this->bind(':name',$post['name']);
@@ -17,6 +22,10 @@ class UserModel extends Model
 			{
 				// Redirect
 				header('Location: '.ROOT_URL.'users/login');
+			}
+			else
+			{
+				Messages::setMsg('Maybe we have an account with this email','error');
 			}
 		}
 		return;
@@ -42,10 +51,10 @@ class UserModel extends Model
 				);
 				header('Location: '.ROOT_URL.'shares');
 			}
-			// //verify
-			// if($this->lastInsertId())
-			// {
-			// }
+			else
+			{
+				Messages::setMsg('Wrong credintals', 'error');
+			}
 		}
 		return;
 	}

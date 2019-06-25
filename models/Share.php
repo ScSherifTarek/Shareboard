@@ -12,12 +12,17 @@ class ShareModel extends Model
 	{
 		if($post['submit'])
 		{
+			if($post['title'] == '' || $post['body'] == '' || $post['link'] == '')
+			{
+				Messages::setMsg('Please Fill all fields','error');
+				return;
+			}
 			// Insert To MySQL
 			$this->query('INSERT INTO shares (title, body, link, user_id) VALUES(:title, :body, :link, :user_id)');
 			$this->bind(':title',$post['title']);
 			$this->bind(':body',$post['body']);
 			$this->bind(':link',$post['link']);
-			$this->bind(':user_id',1);
+			$this->bind(':user_id',$_SESSION['user']['id']);
 			$this->execute();
 
 			//verify
@@ -25,6 +30,10 @@ class ShareModel extends Model
 			{
 				// Redirect
 				header('Location: '.ROOT_URL.'shares');
+			}
+			else
+			{
+				Messages::setMsg('Please Check you meet our criteria','error');
 			}
 		}
 		return;

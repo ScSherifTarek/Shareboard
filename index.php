@@ -3,6 +3,7 @@
 session_start();
 require('config.php');
 require('helpers/helpers.php');
+require('classes/Messages.php');
 
 require('classes/Bootstrap.php');
 require('classes/Controller.php');
