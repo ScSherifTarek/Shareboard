@@ -24,8 +24,13 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
+            <?php if(is_a_user()): ?>            
+            <li><a href="<?= ROOT_URL ?>">Welcome <?= $_SESSION['user']['name'] ?></a></li>
+            <li><a href="<?= ROOT_URL ?>users/logout">Logout</a></li>
+            <?php else: ?>
             <li><a href="<?= ROOT_URL ?>users/login">Login</a></li>
             <li><a href="<?= ROOT_URL ?>users/register">Register</a></li>
+            <?php endif; ?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
